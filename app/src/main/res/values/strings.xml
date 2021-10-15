@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FUITemplet</string>
+    <string name="example_title_text">Title</string>
+    <string name="new_tag">New</string>
+</resources>
