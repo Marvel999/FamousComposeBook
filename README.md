@@ -1,7 +1,7 @@
-# Android_App_UI_Templates👕
+# Android_App_UI_Templates👕 Or 🌱
 <img src="https://github.com/Marvel999/Hacktoberfest_Android_Compose_Template/blob/master/ReadmeFileImages/HackFest22.jpg?raw=true" alt="Hacktoberfest 2021">
-This repository will help you and other upcoming developer during Android app devlpement. If you want to contribute in this repository "Most Welcome". 
-If you are contributing in october then you will get swag(hacktoberfest2021).👕👕👕
+This repository will help you and other upcoming developer during Android app devlpement. Aim of this repo. is to learn jetpack compose. Create Hub of many Populer App(Like: LinkedIn, Instagram, Whatapp) Templates in compose. So Whenver any dev. need to learn any thing in android he does's waste too much time for thinking about UI. If you want to contribute in this repository "Most Welcome". 
+If you are contributing in october then you will get swag(hacktoberfest2022).👕👕🌱
 
 ## EVENT DETAILS:
 
@@ -16,15 +16,17 @@ To know more about the event, <a href="https://www.youtube.com/watch?v=MzpOQSJxH
 1. Check The Screen for that Populer app you are cloning should not be in this List.
     https://docs.google.com/spreadsheets/d/1jCPL4hOJVDgNpdKfmIlC3mjiyzSN4Ty5FQj5X54zCkA/edit?usp=sharing
 2. If that Screen is not in list then please add and start working on it.
-2. Please solve question In Language(C++ Or JAVA).
-3. Please put question solution in dedicated folder of Data Structure(If not persent then please make then put into that folder).
-4. While making PR please check program should not have any compliation or Logical error, put comments if required.
-5. Every solution should have this thing.
+2. Please Make seprate package for your temp.
+3. Please link you temp. with landing screen.
+4. Adding commnets on code help other developers and help use to review your code.
+5. you call store all asset in all for showcase.
+6. Please Create folder for your app in ReadmeFileImage and add your Temp. Screenshot.
+9. Don't forget to update status, and PR Link on Google Sheet.
+10. Every PR Should have These think in code on temp. Home Screen.
 /**
 * Your name
 * Github profile link
-* Question URL(Only From Leetcode)
-* Question Small description
+* Name of App
 **/
 
 ## How to make PR
