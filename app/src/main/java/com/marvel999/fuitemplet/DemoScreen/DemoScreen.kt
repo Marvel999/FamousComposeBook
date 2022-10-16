@@ -1,4 +1,4 @@
-package com.marvel999.fuitemplet
+package com.marvel999.fuitemplet.DemoScreen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,15 +10,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.marvel999.fuitemplet.ui.theme.FUITempletTheme
+import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
 
-class MainActivity : ComponentActivity() {
+class DemoScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             FUITempletTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
                     Greeting("Android")
                 }
             }
@@ -33,7 +36,7 @@ fun Greeting(name: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun DefaultPreview2() {
     FUITempletTheme {
         Greeting("Android")
     }
