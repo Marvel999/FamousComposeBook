@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.marvel999.fuitemplet.DemoScreen.DemoScreen
 import com.marvel999.fuitemplet.R
 import com.marvel999.fuitemplet.landingscreen.componets.LandingPageListItemCard
@@ -29,14 +31,25 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            FUITempletTheme {
+            FUITempletTheme() {
+                val systemUiController = rememberSystemUiController()
                 val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+
+                if (isSystemInDarkTheme()) {
+                    systemUiController.setSystemBarsColor(
+                        color = Color.Transparent
+                    )
+                } else {
+                    systemUiController.setSystemBarsColor(
+                        color = Color.White
+                    )
+                }
                 HomeCompose(scaffoldState = scaffoldState)
             }
         }
     }
 
-    fun StartDemoActivity(){
+    fun StartDemoActivity() {
         startActivity(Intent(this, DemoScreen::class.java))
     }
 
@@ -58,8 +71,7 @@ class MainActivity : ComponentActivity() {
                 Text(
                     text = "Educator Profile",
                     color = Color.White,
-
-                    modifier = Modifier.padding(start = Dp(15f))
+                    modifier = Modifier.padding(start = Dp(10f))
                 )
             },
         )
@@ -75,13 +87,12 @@ class MainActivity : ComponentActivity() {
         ) {
 
             Column(
-                modifier = Modifier
-                    .background(Color(android.graphics.Color.parseColor("#" + "3C4852")))
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
             ) {
 
                 // Top lazyList Section
-                landingPageListItemCardDataList = landingPageListItemCardDataList + LandingPageListItemCardData(
+                landingPageListItemCardDataList =
+                    landingPageListItemCardDataList + LandingPageListItemCardData(
                         R.drawable.img_landingscreen_default_icon,
                         appTemplateName = "Demo App",
                         onItemClick = {
@@ -96,8 +107,8 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun TopListSection(itemList: List<LandingPageListItemCardData>) {
-        Column{
-            LazyColumn(modifier = Modifier.padding(top = Dp(8f), bottom = Dp(20f))) {
+        Column {
+            LazyColumn {
                 itemsIndexed(itemList) { _, item ->
                     LandingPageListItemCard(landingPageListItemCardData = item)
                 }
