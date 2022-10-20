@@ -30,7 +30,8 @@ import com.marvel999.fuitemplet.ui.theme.LiteTextBase0
 @Composable
 fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCardData) {
     Box(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
             .background(color = LiteBase0)
             .clickable(indication = null,
                 interactionSource = remember {
@@ -46,7 +47,7 @@ fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCard
     ) {
         Row(modifier = Modifier.align(Alignment.CenterStart)) {
             Image(
-                painter = painterResource(id = landingPageListItemCardData.appICon),
+                painter = painterResource(id = landingPageListItemCardData.appIcon),
                 contentDescription = "App Icon",
                 modifier = Modifier
                     .width(Dp(Dimensions.DP_40))
@@ -54,7 +55,11 @@ fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCard
                     .clip(
                         CircleShape
                     )
-                    .border(Dp(Dimensions.DP_2), landingPageListItemCardData.iconBorderColor, CircleShape)
+                    .border(
+                        Dp(Dimensions.DP_2),
+                        landingPageListItemCardData.iconBorderColor,
+                        CircleShape
+                    )
             )
 
             Text(
@@ -62,7 +67,11 @@ fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCard
                 fontWeight = FontWeight.SemiBold,
                 color = LiteTextBase0,
                 fontSize = 14.sp,
-                modifier = Modifier.padding(start = Dp(Dimensions.DP_16), top = Dp(Dimensions.DP_11), bottom = Dp(Dimensions.DP_11))
+                modifier = Modifier.padding(
+                    start = Dp(Dimensions.DP_16),
+                    top = Dp(Dimensions.DP_11),
+                    bottom = Dp(Dimensions.DP_11)
+                )
             )
         }
 
@@ -87,12 +96,16 @@ fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCard
 @Preview
 @Composable
 fun LandingPageListItemCardPreview() {
-    LandingPageListItemCard(LandingPageListItemCardData(appTemplateName = "1Screen", onItemClick = {LandingPageListItemCardData(appTemplateName = "Me")}))
+    LandingPageListItemCard(
+        LandingPageListItemCardData(
+            appTemplateName = "1Screen",
+            onItemClick = { LandingPageListItemCardData(appTemplateName = "Me") })
+    )
 }
 
 data class LandingPageListItemCardData(
     @DrawableRes
-    val appICon: Int = R.drawable.img_landingscreen_default_icon,
+    val appIcon: Int = R.drawable.img_landingscreen_default_icon,
     val iconBorderColor: Color = LiteGray0,
     val appTemplateName: String,
     val onItemClick: (() -> Unit)? = null
