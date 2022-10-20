@@ -84,15 +84,6 @@ class MainActivity : ComponentActivity() {
             Column(
                 modifier = Modifier.fillMaxSize(),
             ) {
-
-                // Top lazyList Section
-                landingPageListItemCardDataList = landingPageListItemCardDataList + LandingPageListItemCardData(
-                        R.drawable.img_landingscreen_default_icon,
-                        appTemplateName = "Demo App",
-                        onItemClick = {
-                            StartDemoActivity()
-                        })
-
                 TopListSection(landingPageListItemCardDataList)
 
             }
