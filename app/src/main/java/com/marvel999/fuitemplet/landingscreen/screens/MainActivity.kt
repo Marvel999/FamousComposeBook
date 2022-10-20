@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,16 +32,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             FUITempletTheme {
                 val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
-
-                if (isSystemInDarkTheme()) {
-                    systemUiController.setSystemBarsColor(
-                        color = Color.Transparent
-                    )
-                } else {
-                    systemUiController.setSystemBarsColor(
-                        color = Color.White
-                    )
-                }
                 HomeCompose(scaffoldState = scaffoldState)
             }
         }
