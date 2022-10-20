@@ -31,8 +31,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            FUITempletTheme() {
+            FUITempletTheme {
                 val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+
+                if (isSystemInDarkTheme()) {
+                    systemUiController.setSystemBarsColor(
+                        color = Color.Transparent
+                    )
+                } else {
+                    systemUiController.setSystemBarsColor(
+                        color = Color.White
+                    )
+                }
                 HomeCompose(scaffoldState = scaffoldState)
             }
         }
@@ -81,10 +91,19 @@ class MainActivity : ComponentActivity() {
                 .fillMaxSize()
                 .background(LiteGray0)
         ) {
+
             Column(
                 modifier = Modifier.fillMaxSize(),
             ) {
+
                 // Top lazyList Section
+                landingPageListItemCardDataList = landingPageListItemCardDataList + LandingPageListItemCardData(
+                        R.drawable.img_landingscreen_default_icon,
+                        appTemplateName = "Demo App",
+                        onItemClick = {
+                            StartDemoActivity()
+                        })
+
                 TopListSection(landingPageListItemCardDataList)
 
             }
