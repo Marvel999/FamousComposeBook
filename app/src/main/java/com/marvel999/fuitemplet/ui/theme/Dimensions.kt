@@ -6,6 +6,7 @@ object Dimensions {
      */
     val SPACING_4:Float = 4F
     val SPACING_8:Float = 8F
+    val SPACING_10:Float = 10F
     val SPACING_16:Float = 16F
 
     /**
@@ -19,4 +20,5 @@ object Dimensions {
     val DP_16:Float = 16F
     val DP_23:Float = 23F
     val DP_40:Float = 40F
+    val DP_400:Float = 400F
 }

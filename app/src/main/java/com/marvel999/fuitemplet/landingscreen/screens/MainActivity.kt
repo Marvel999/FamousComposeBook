@@ -18,12 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.marvel999.fuitemplet.DemoScreen.DemoScreen
 import com.marvel999.fuitemplet.R
 import com.marvel999.fuitemplet.landingscreen.componets.LandingPageListItemCard
 import com.marvel999.fuitemplet.landingscreen.componets.LandingPageListItemCardData
 import com.marvel999.fuitemplet.landingscreen.data.landingPageListItemCardDataList
+import com.marvel999.fuitemplet.ui.theme.Dimensions
 import com.marvel999.fuitemplet.ui.theme.FUITempletTheme
 import com.marvel999.fuitemplet.ui.theme.LiteGray0
 
@@ -31,8 +31,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            FUITempletTheme() {
-                val systemUiController = rememberSystemUiController()
+            FUITempletTheme {
                 val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
 
                 if (isSystemInDarkTheme()) {
@@ -69,9 +68,9 @@ class MainActivity : ComponentActivity() {
         TopAppBar(
             title = {
                 Text(
-                    text = "Educator Profile",
+                    text = "Clone UI Template",
                     color = Color.White,
-                    modifier = Modifier.padding(start = Dp(10f))
+                    modifier = Modifier.padding(start = Dp(Dimensions.SPACING_10))
                 )
             },
         )
@@ -80,6 +79,13 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun BodyComposable() {
+        landingPageListItemCardDataList =
+            landingPageListItemCardDataList + LandingPageListItemCardData(
+                appIcon = R.drawable.ic_hacktober_icon,
+                appTemplateName = "Welcome Screen",
+                onItemClick = {
+                    StartDemoActivity()
+                })
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -91,8 +97,7 @@ class MainActivity : ComponentActivity() {
             ) {
 
                 // Top lazyList Section
-                landingPageListItemCardDataList =
-                    landingPageListItemCardDataList + LandingPageListItemCardData(
+                landingPageListItemCardDataList = landingPageListItemCardDataList + LandingPageListItemCardData(
                         R.drawable.img_landingscreen_default_icon,
                         appTemplateName = "Demo App",
                         onItemClick = {
