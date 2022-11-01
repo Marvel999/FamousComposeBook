@@ -47,6 +47,31 @@ fun HomeUI() {
 
 }
 
+
+@Composable
+fun UserStoryUI() {
+    Column (modifier = Modifier.wrapContentHeight()) {
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth().wrapContentHeight()
+        ) {
+
+            Text(text = "Stories", modifier = Modifier.padding(start = 10.dp))
+
+            Row {
+                val playIcon = painterResource(id = R.drawable.ic_baseline_play_arrow_24)
+                Image(painter = playIcon, contentDescription = null,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(end = 10.dp)
+                )
+                Text(text = "Watch all", style = TextStyle(fontWeight = FontWeight.Bold),
+                    modifier = Modifier.padding(end = 10.dp))
+            }
+        }
+    }
+}
+
 /**
  * Instagram TopAppBar UI for showing different UI Cases here
  */
@@ -93,6 +118,6 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        TopAppBar()
+        UserStoryUI()
     }
 }
