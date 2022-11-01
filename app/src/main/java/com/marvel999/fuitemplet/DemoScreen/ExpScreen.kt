@@ -55,19 +55,21 @@ fun HomeUI() {
         TopAppBar()
         Spacer(modifier = Modifier.height(16.dp))
         UserStoryUI()
+        Spacer(modifier = Modifier.height(10.dp))
+        UserPostUI()
     }
 }
 
 @Composable
 fun UserPostUI() {
-
     Column (modifier = Modifier.padding(start = 10.dp)) {
         PostHeaderUI()
         Spacer(modifier = Modifier.height(10.dp))
         val gojoImage = painterResource(id = R.drawable.gojo_anime)
         Image(painter = gojoImage,
             contentDescription = null,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .wrapContentHeight()
         )
         UserPostInteractionUI()
@@ -282,6 +284,6 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        UserPostUI()
+        HomeUI()
     }
 }
