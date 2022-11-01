@@ -51,8 +51,100 @@ class ExpScreen : ComponentActivity() {
 
 @Composable
 fun HomeUI() {
+    Column {
+        TopAppBar()
+        Spacer(modifier = Modifier.height(16.dp))
+        UserStoryUI()
+    }
+}
 
+@Composable
+fun UserPostUI() {
 
+    Column (modifier = Modifier.padding(start = 10.dp)) {
+        PostHeaderUI()
+        Spacer(modifier = Modifier.height(10.dp))
+        val gojoImage = painterResource(id = R.drawable.gojo_anime)
+        Image(painter = gojoImage,
+            contentDescription = null,
+            modifier = Modifier.fillMaxWidth()
+                .wrapContentHeight()
+        )
+        UserPostInteractionUI()
+    }
+
+}
+
+@Composable
+fun PostHeaderUI() {
+    Row(horizontalArrangement = Arrangement.SpaceBetween,
+    modifier = Modifier
+        .fillMaxWidth()
+        .wrapContentHeight()
+    ) {
+      Row {
+          val userProfile = painterResource(id = R.drawable.model_si)
+          Image(
+              painter = userProfile,
+              contentDescription = null,
+              modifier = Modifier
+                  .size((28.dp))
+                  .clip(CircleShape)
+                  .border(
+                      width = 2.dp,
+                      color = Color("#feda75".toColorInt()),
+                      shape = CircleShape
+                  ),
+              contentScale = ContentScale.Crop
+          )
+          Text(text = "Westly.windler", style = TextStyle(fontSize = 8.sp),
+              modifier = Modifier
+                  .align(Alignment.CenterVertically)
+                  .padding(start = 4.dp)
+          )
+      }
+        val optionIcon = painterResource(id = R.drawable.ic_baseline_more_horiz_24)
+        Image(painter = optionIcon, contentDescription = null)
+
+    }
+
+}
+
+@Composable
+fun UserPostInteractionUI() {
+    Row (modifier = Modifier
+        .fillMaxWidth()
+        .wrapContentHeight(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Row (horizontalArrangement = Arrangement.SpaceEvenly,
+        modifier = Modifier.wrapContentWidth()) {
+            val likeIcon = painterResource(id = R.drawable.heart)
+            val commentIcon = painterResource(id = R.drawable.chat)
+            val shareIcon = painterResource(id = R.drawable.send)
+
+            val iconList = listOf(likeIcon, commentIcon, shareIcon)
+            for (icon in iconList) {
+                Image(
+                    painter = icon,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(24.dp)
+                        .padding(end = 10.dp)
+                )
+            }
+        }
+
+        val bookMarkIcon = painterResource(id = R.drawable.bookmark)
+        Image(
+            painter = bookMarkIcon,
+            contentDescription = null,
+            modifier = Modifier
+                .size(24.dp)
+                .padding(end = 10.dp)
+
+        )
+    }
 
 }
 
@@ -190,6 +282,6 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        UserStoryUI()
+        UserPostUI()
     }
 }
