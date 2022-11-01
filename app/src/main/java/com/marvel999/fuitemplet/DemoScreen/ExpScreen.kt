@@ -4,14 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -53,7 +59,9 @@ fun UserStoryUI() {
     Column (modifier = Modifier.wrapContentHeight()) {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth().wrapContentHeight()
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
         ) {
 
             Text(text = "Stories", modifier = Modifier.padding(start = 10.dp))
@@ -70,6 +78,36 @@ fun UserStoryUI() {
             }
         }
     }
+}
+
+@Composable
+fun UserOwnStoryUI() {
+    Box {
+        val devImage = painterResource(id = R.drawable.developer)
+        val addIcon = painterResource(id = R.drawable.ic_baseline_add_circle_outline_24)
+        Image(
+            painter = devImage,
+            contentDescription = null,
+            modifier = Modifier
+                .size((64.dp))
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop
+        )
+
+        Image (
+            painter = addIcon,
+            contentDescription = null,
+            modifier = Modifier
+                .size(16.dp)
+                .padding(bottom = 3.dp)
+                .align(Alignment.BottomEnd)
+        )
+    }
+}
+
+@Composable
+fun UserFriendsStoryList() {
+
 }
 
 /**
@@ -118,6 +156,6 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        UserStoryUI()
+        UserOwnStoryUI()
     }
 }
