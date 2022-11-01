@@ -8,6 +8,8 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -27,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.graphics.toColorInt
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
 import com.marvel999.fuitemplet.R
 
@@ -108,6 +111,30 @@ fun UserOwnStoryUI() {
 @Composable
 fun UserFriendsStoryList() {
 
+    val list = listOf(R.drawable.model_f, R.drawable.model_s, R.drawable.model_t, R.drawable.model_fo,
+    R.drawable.model_fi, R.drawable.model_si)
+
+    LazyRow() {
+        items(list) { model ->
+            Box(modifier = Modifier.padding(start = 10.dp)) {
+                Image(
+                    painter = painterResource(id = model),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size((64.dp))
+                        .clip(CircleShape)
+                        .border(
+                            width = 2.dp,
+                            color = Color("#feda75".toColorInt()),
+                            shape = CircleShape
+                        ),
+                    contentScale = ContentScale.Crop
+                )
+            }
+        }
+
+    }
+
 }
 
 /**
@@ -156,6 +183,6 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        UserOwnStoryUI()
+        UserFriendsStoryList()
     }
 }
