@@ -80,12 +80,19 @@ fun UserStoryUI() {
                     modifier = Modifier.padding(end = 10.dp))
             }
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Row {
+            UserOwnStoryUI()
+            UserFriendsStoryList()
+        }
     }
 }
 
 @Composable
 fun UserOwnStoryUI() {
-    Box {
+    Box(modifier = Modifier.padding(start = 10.dp)) {
         val devImage = painterResource(id = R.drawable.developer)
         val addIcon = painterResource(id = R.drawable.ic_baseline_add_circle_outline_24)
         Image(
@@ -183,6 +190,6 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        UserFriendsStoryList()
+        UserStoryUI()
     }
 }
