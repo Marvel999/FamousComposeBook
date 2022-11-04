@@ -176,11 +176,7 @@ fun UserStoryUI() {
         }
 
         Spacer(modifier = Modifier.height(20.dp))
-
-        Row {
-            UserOwnStoryUI()
-            UserFriendsStoryList()
-        }
+        UserFriendsStoryList()
     }
 }
 
@@ -193,7 +189,7 @@ fun UserOwnStoryUI() {
             painter = devImage,
             contentDescription = null,
             modifier = Modifier
-                .size((64.dp))
+                .size((68.dp))
                 .clip(CircleShape),
             contentScale = ContentScale.Crop
         )
@@ -216,13 +212,17 @@ fun UserFriendsStoryList() {
     R.drawable.model_fi, R.drawable.model_si)
 
     LazyRow() {
+        item {
+            UserOwnStoryUI()
+        }
+
         items(list) { model ->
             Box(modifier = Modifier.padding(start = 10.dp)) {
                 Image(
                     painter = painterResource(id = model),
                     contentDescription = null,
                     modifier = Modifier
-                        .size((64.dp))
+                        .size((68.dp))
                         .clip(CircleShape)
                         .border(
                             width = 2.dp,
