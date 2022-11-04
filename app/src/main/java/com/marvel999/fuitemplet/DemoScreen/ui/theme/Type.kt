@@ -2,9 +2,11 @@ package com.marvel999.fuitemplet.DemoScreen.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.marvel999.fuitemplet.R
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -26,3 +28,5 @@ val Typography = Typography(
     )
     */
 )
+
+val instagramTypography = FontFamily(Font(R.font.root_insta))

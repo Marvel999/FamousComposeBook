@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
+import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTypography
 import com.marvel999.fuitemplet.R
 
 class ExpScreen : ComponentActivity() {
@@ -246,27 +247,33 @@ fun TopAppBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .wrapContentHeight()
+            .wrapContentHeight(),
+        horizontalArrangement = Arrangement.SpaceBetween
     )
     {
-        TopBarCenterImage(res = R.drawable.ic_baseline_camera_alt, Modifier.padding(start = 10.dp))
         Box(
             modifier = Modifier
                 .wrapContentSize(Alignment.Center)
-                .weight(1f)
+                .padding(start = 10.dp)
         ) {
             Text(
                 text = "Instagram",
                 style = TextStyle(
-                    fontFamily = FontFamily.Cursive,
+                    fontFamily = instagramTypography,
                     fontSize = 32.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontStyle = FontStyle.Italic
                 ),
                 textAlign = TextAlign.Center
             )
         }
-        TopBarCenterImage(res = R.drawable.ic_baseline_send_24, Modifier.padding(end = 10.dp))
+        Row(
+            modifier = Modifier.align(Alignment.CenterVertically)
+        ) {
+            TopBarCenterImage(res = R.drawable.ic_insta_add_post_icon,
+                Modifier.padding(end = 10.dp))
+            Spacer(modifier = Modifier.width(10.dp))
+            TopBarCenterImage(res = R.drawable.ic_instagram_share_icon,
+                Modifier.padding(end = 10.dp))
+        }
     }
 
 }
@@ -276,11 +283,15 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
     Image(
         painter = painterResource(id = res),
         contentDescription = null,
-        modifier = modifier.align(Alignment.CenterVertically)
+        modifier = modifier
+            .align(Alignment.CenterVertically)
+            .size(24.dp),
+        alignment = Alignment.Center
+
     )
 }
 
-@Preview
+@Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
