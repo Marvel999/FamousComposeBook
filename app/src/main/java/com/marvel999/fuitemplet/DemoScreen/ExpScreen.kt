@@ -63,15 +63,20 @@ fun HomeUI() {
 
 @Composable
 fun UserPostUI() {
-    Column (modifier = Modifier.padding(start = 10.dp)) {
+//
+    Column () {
         PostHeaderUI()
         Spacer(modifier = Modifier.height(10.dp))
-        val gojoImage = painterResource(id = R.drawable.gojo_anime)
-        Image(painter = gojoImage,
+        val gojoImage = painterResource(id = R.drawable.sportsscene)
+        Image(
+            painter = gojoImage,
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
+                .defaultMinSize(minHeight = 330.dp)
+                .background(Color("#F1F3F4".toColorInt()))
+            ,
         )
         UserPostInteractionUI()
     }
@@ -80,10 +85,12 @@ fun UserPostUI() {
 
 @Composable
 fun PostHeaderUI() {
-    Row(horizontalArrangement = Arrangement.SpaceBetween,
-    modifier = Modifier
-        .fillMaxWidth()
-        .wrapContentHeight()
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .padding(start = 10.dp, end = 10.dp)
     ) {
       Row {
           val userProfile = painterResource(id = R.drawable.model_si)
@@ -91,7 +98,7 @@ fun PostHeaderUI() {
               painter = userProfile,
               contentDescription = null,
               modifier = Modifier
-                  .size((28.dp))
+                  .size((40.dp))
                   .clip(CircleShape)
                   .border(
                       width = 2.dp,
@@ -100,10 +107,14 @@ fun PostHeaderUI() {
                   ),
               contentScale = ContentScale.Crop
           )
-          Text(text = "Westly.windler", style = TextStyle(fontSize = 8.sp),
+          Text(text = "Westly.windler",
+              style = TextStyle(
+                  fontSize = 14.sp,
+                  fontWeight = FontWeight.Bold
+              ),
               modifier = Modifier
                   .align(Alignment.CenterVertically)
-                  .padding(start = 4.dp)
+                  .padding(start = 8.dp)
           )
       }
         val optionIcon = painterResource(id = R.drawable.ic_baseline_more_horiz_24)
@@ -115,16 +126,18 @@ fun PostHeaderUI() {
 
 @Composable
 fun UserPostInteractionUI() {
+    Spacer(modifier = Modifier.height(10.dp))
     Row (modifier = Modifier
         .fillMaxWidth()
-        .wrapContentHeight(),
+        .wrapContentHeight()
+        .padding(start = 10.dp, end = 10.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Row (horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = Modifier.wrapContentWidth()) {
-            val likeIcon = painterResource(id = R.drawable.heart)
-            val commentIcon = painterResource(id = R.drawable.chat)
-            val shareIcon = painterResource(id = R.drawable.send)
+            val likeIcon = painterResource(id = R.drawable.ic_insta_like_icon)
+            val commentIcon = painterResource(id = R.drawable.ic_insta_comment_icon)
+            val shareIcon = painterResource(id = R.drawable.ic_instagram_share_icon)
 
             val iconList = listOf(likeIcon, commentIcon, shareIcon)
             for (icon in iconList) {
@@ -132,18 +145,19 @@ fun UserPostInteractionUI() {
                     painter = icon,
                     contentDescription = null,
                     modifier = Modifier
-                        .size(24.dp)
-                        .padding(end = 10.dp)
+                        .size(40.dp)
+                        .padding(end = 15.dp)
+                        .align(Alignment.CenterVertically)
                 )
             }
         }
 
-        val bookMarkIcon = painterResource(id = R.drawable.bookmark)
+        val bookMarkIcon = painterResource(id = R.drawable.ic_baseline_bookmark_border_24)
         Image(
             painter = bookMarkIcon,
             contentDescription = null,
             modifier = Modifier
-                .size(24.dp)
+                .size(40.dp)
                 .padding(end = 10.dp)
 
         )
@@ -153,19 +167,6 @@ fun UserPostInteractionUI() {
 
 @Composable
 fun UserOwnStoryUI() {
-    val circleColors: List<Color> = listOf(
-        Color(0xFF5851D8),
-        Color(0xFF833AB4),
-        Color(0xFFC13584),
-        Color(0xFFE1306C),
-        Color(0xFFFD1D1D),
-        Color(0xFFF56040),
-        Color(0xFFF77737),
-        Color(0xFFFCAF45),
-        Color(0xFFFFDC80),
-        Color(0xFF5851D8)
-    )
-
     Column(modifier = Modifier.padding(start = 10.dp)) {
 
         Box {
@@ -176,7 +177,8 @@ fun UserOwnStoryUI() {
                 painter = devImage,
                 contentDescription = null,
                 modifier = Modifier
-                    .size((68.dp)).clip(CircleShape),
+                    .size((68.dp))
+                    .clip(CircleShape),
                 contentScale = ContentScale.Crop
             )
 
@@ -194,7 +196,7 @@ fun UserOwnStoryUI() {
             style = TextStyle(
                 fontFamily = instagramTextTypography,
                 fontSize = 10.sp,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 color = Color.Black
             ),
             modifier = Modifier
@@ -216,7 +218,6 @@ fun UserFriendsStoryList() {
         UserStories(R.drawable.model_si, "niroma khan"),
     )
     val circleColors: List<Color> = listOf(
-        Color(0xFF5851D8),
         Color(0xFF833AB4),
         Color(0xFFC13584),
         Color(0xFFE1306C),
@@ -225,7 +226,6 @@ fun UserFriendsStoryList() {
         Color(0xFFF77737),
         Color(0xFFFCAF45),
         Color(0xFFFFDC80),
-        Color(0xFF5851D8)
     )
 
     LazyRow() {
