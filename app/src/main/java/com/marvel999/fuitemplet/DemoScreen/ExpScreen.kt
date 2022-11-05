@@ -320,11 +320,57 @@ fun RowScope.TopBarCenterImage(@DrawableRes res: Int, modifier: Modifier) {
     )
 }
 
+/**
+ * Post Liked, Dates, Comments Of the users
+ */
+
+@Composable
+fun PostLikedUI() {
+
+    Row(modifier = Modifier) {
+        Image(
+            painter = painterResource(id = R.drawable.model_f),
+            contentDescription = null,
+            modifier = Modifier
+                .size(34.dp)
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop
+        )
+
+        Box(
+            modifier = Modifier
+                .offset((-10).dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.model_si),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(34.dp)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop
+            )
+        }
+
+//
+//        Image(
+//            painter = painterResource(id = R.drawable.model_fi),
+//            contentDescription = null,
+//            modifier = Modifier
+//                .size(64.dp)
+//                .clip(CircleShape)
+//                .offset(x = (-10).dp),
+//            contentScale = ContentScale.Crop
+//        )
+
+    }
+
+}
+
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        HomeUI()
+        PostLikedUI()
     }
 }
 
