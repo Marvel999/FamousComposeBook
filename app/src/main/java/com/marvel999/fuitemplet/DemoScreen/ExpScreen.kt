@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -18,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -31,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
+import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTextTypography
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTypography
 import com.marvel999.fuitemplet.R
 
@@ -55,7 +55,7 @@ fun HomeUI() {
     Column {
         TopAppBar()
         Spacer(modifier = Modifier.height(16.dp))
-        UserStoryUI()
+        UserFriendsStoryList()
         Spacer(modifier = Modifier.height(10.dp))
         UserPostUI()
     }
@@ -151,57 +151,55 @@ fun UserPostInteractionUI() {
 
 }
 
-
-@Composable
-fun UserStoryUI() {
-    Column (modifier = Modifier.wrapContentHeight()) {
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-        ) {
-
-            Text(text = "Stories", modifier = Modifier.padding(start = 10.dp))
-
-            Row {
-                val playIcon = painterResource(id = R.drawable.ic_baseline_play_arrow_24)
-                Image(painter = playIcon, contentDescription = null,
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .padding(end = 10.dp)
-                )
-                Text(text = "Watch all", style = TextStyle(fontWeight = FontWeight.Bold),
-                    modifier = Modifier.padding(end = 10.dp))
-            }
-        }
-
-        Spacer(modifier = Modifier.height(20.dp))
-        UserFriendsStoryList()
-    }
-}
-
 @Composable
 fun UserOwnStoryUI() {
-    Box(modifier = Modifier.padding(start = 10.dp)) {
-        val devImage = painterResource(id = R.drawable.developer)
-        val addIcon = painterResource(id = R.drawable.ic_baseline_add_circle_outline_24)
-        Image(
-            painter = devImage,
-            contentDescription = null,
-            modifier = Modifier
-                .size((68.dp))
-                .clip(CircleShape),
-            contentScale = ContentScale.Crop
-        )
+    val circleColors: List<Color> = listOf(
+        Color(0xFF5851D8),
+        Color(0xFF833AB4),
+        Color(0xFFC13584),
+        Color(0xFFE1306C),
+        Color(0xFFFD1D1D),
+        Color(0xFFF56040),
+        Color(0xFFF77737),
+        Color(0xFFFCAF45),
+        Color(0xFFFFDC80),
+        Color(0xFF5851D8)
+    )
 
-        Image (
-            painter = addIcon,
-            contentDescription = null,
+    Column(modifier = Modifier.padding(start = 10.dp)) {
+
+        Box {
+            val devImage = painterResource(id = R.drawable.developer)
+            val addIcon = painterResource(id = R.drawable.ic_insta_add_story)
+
+            Image(
+                painter = devImage,
+                contentDescription = null,
+                modifier = Modifier
+                    .size((68.dp)).clip(CircleShape),
+                contentScale = ContentScale.Crop
+            )
+
+            Image (
+                painter = addIcon,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(24.dp)
+                    .align(Alignment.BottomEnd)
+            )
+        }
+
+        Text(
+            text = "Your story",
+            style = TextStyle(
+                fontFamily = instagramTextTypography,
+                fontSize = 10.sp,
+                fontWeight = FontWeight.Light,
+                color = Color.Black
+            ),
             modifier = Modifier
-                .size(16.dp)
-                .padding(bottom = 3.dp)
-                .align(Alignment.BottomEnd)
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 6.dp)
         )
     }
 }
@@ -209,28 +207,59 @@ fun UserOwnStoryUI() {
 @Composable
 fun UserFriendsStoryList() {
 
-    val list = listOf(R.drawable.model_f, R.drawable.model_s, R.drawable.model_t, R.drawable.model_fo,
-    R.drawable.model_fi, R.drawable.model_si)
+    val userStoryList = listOf(
+        UserStories(R.drawable.model_f, "Keni Zami"),
+        UserStories(R.drawable.model_s, "lizyzoe"),
+        UserStories(R.drawable.model_t, "lofit112"),
+        UserStories(R.drawable.model_fo, "kendo fam"),
+        UserStories(R.drawable.model_fi, "nataliya"),
+        UserStories(R.drawable.model_si, "niroma khan"),
+    )
+    val circleColors: List<Color> = listOf(
+        Color(0xFF5851D8),
+        Color(0xFF833AB4),
+        Color(0xFFC13584),
+        Color(0xFFE1306C),
+        Color(0xFFFD1D1D),
+        Color(0xFFF56040),
+        Color(0xFFF77737),
+        Color(0xFFFCAF45),
+        Color(0xFFFFDC80),
+        Color(0xFF5851D8)
+    )
 
     LazyRow() {
         item {
             UserOwnStoryUI()
         }
 
-        items(list) { model ->
-            Box(modifier = Modifier.padding(start = 10.dp)) {
+        items(userStoryList) { model ->
+            Column (modifier = Modifier.padding(start = 10.dp))  {
                 Image(
-                    painter = painterResource(id = model),
+                    painter = painterResource(id = model.userImage),
                     contentDescription = null,
                     modifier = Modifier
                         .size((68.dp))
-                        .clip(CircleShape)
                         .border(
                             width = 2.dp,
-                            color = Color("#feda75".toColorInt()),
+                            brush = Brush.sweepGradient(circleColors),
                             shape = CircleShape
-                        ),
+                        )
+                        .padding(all = 6.dp)
+                        .clip(CircleShape)
+                    ,
                     contentScale = ContentScale.Crop
+                )
+
+                Text(
+                    text = model.userName,
+                    style = TextStyle(
+                         fontFamily = instagramTextTypography,
+                        fontSize = 10.sp
+                    ),
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(top = 6.dp)
                 )
             }
         }
@@ -298,3 +327,5 @@ fun DefaultPreview() {
         HomeUI()
     }
 }
+
+data class UserStories(@DrawableRes val userImage: Int, val userName: String)

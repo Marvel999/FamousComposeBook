@@ -30,3 +30,9 @@ val Typography = Typography(
 )
 
 val instagramTypography = FontFamily(Font(R.font.root_insta))
+
+val instagramTextTypography = FontFamily(
+    Font(R.font.instagram_sans_regular, FontWeight.Normal),
+    Font(R.font.instagram_sans_medium, FontWeight.Medium),
+    Font(R.font.instagram_sans_light, FontWeight.Light)
+)
