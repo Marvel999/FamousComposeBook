@@ -63,8 +63,7 @@ fun HomeUI() {
 
 @Composable
 fun UserPostUI() {
-//
-    Column () {
+    Column {
         PostHeaderUI()
         Spacer(modifier = Modifier.height(10.dp))
         val gojoImage = painterResource(id = R.drawable.sportsscene)
@@ -79,6 +78,8 @@ fun UserPostUI() {
             ,
         )
         UserPostInteractionUI()
+        Spacer(modifier = Modifier.height(10.dp))
+        UserPostDescription()
     }
 
 }
@@ -309,18 +310,6 @@ fun PostLikedUI() {
                 contentScale = ContentScale.Crop
             )
         }
-
-//
-//        Image(
-//            painter = painterResource(id = R.drawable.model_fi),
-//            contentDescription = null,
-//            modifier = Modifier
-//                .size(64.dp)
-//                .clip(CircleShape)
-//                .offset(x = (-10).dp),
-//            contentScale = ContentScale.Crop
-//        )
-
     }
 
 }
@@ -368,6 +357,29 @@ fun UserPostInteractionUI() {
 
 @Composable
 fun UserPostDescription() {
+    Column (modifier = Modifier.padding(start = 10.dp, end = 10.dp)) {
+        Text(
+            text = "47 Likes",
+            style = TextStyle(
+                fontWeight = FontWeight.Bold
+            )
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+        Text (
+            messageFormatter(comment = "Today evening is so good #GoodEvening #CrazyNight"),
+            style = TextStyle(fontSize = 12.sp),
+            maxLines = 1
+        )
+        Spacer(modifier = Modifier.height(2.dp))
+        Text(
+            text = "1 hour ago",
+            style = TextStyle(
+                fontWeight = FontWeight.Light,
+                fontSize = 10.sp,
+                color = Color.LightGray
+            )
+        )
+    }
 
 }
 
