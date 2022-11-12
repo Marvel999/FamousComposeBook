@@ -31,27 +31,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
-import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTextTypography
-import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTypography
 import com.marvel999.fuitemplet.FakePostData
 import com.marvel999.fuitemplet.R
+import com.marvel999.fuitemplet.instagram.ui.theme.instagramTextTypography
+import com.marvel999.fuitemplet.instagram.ui.theme.instagramTypography
 import com.marvel999.fuitemplet.usersPosts
-
-class ExpScreen : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            FUITempletTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    MyCanvas()
-                }
-            }
-        }
-    }
-}
 
 @Composable
 fun HomeUI() {
