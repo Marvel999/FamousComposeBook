@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -32,7 +33,9 @@ import androidx.core.graphics.toColorInt
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTextTypography
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.instagramTypography
+import com.marvel999.fuitemplet.FakePostData
 import com.marvel999.fuitemplet.R
+import com.marvel999.fuitemplet.usersPosts
 
 class ExpScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,18 +58,31 @@ fun HomeUI() {
     Column {
         TopAppBar()
         Spacer(modifier = Modifier.height(16.dp))
-        UserFriendsStoryList()
-        Spacer(modifier = Modifier.height(10.dp))
-        UserPostUI()
+        InstagramHomeUI()
     }
 }
 
 @Composable
-fun UserPostUI() {
+fun InstagramHomeUI() {
+    LazyColumn() {
+        item {
+            UserFriendsStoryList()
+            Spacer(modifier = Modifier.height(10.dp))
+        }
+        items(usersPosts) { usersPost ->
+            UserPostUI(usersPost)
+        }
+    }
+}
+
+@Composable
+fun UserPostUI(
+    userData: FakePostData
+) {
     Column {
-        PostHeaderUI()
+        PostHeaderUI(userData)
         Spacer(modifier = Modifier.height(10.dp))
-        val gojoImage = painterResource(id = R.drawable.sportsscene)
+        val gojoImage = painterResource(id = userData.postImage)
         Image(
             painter = gojoImage,
             contentDescription = null,
@@ -79,13 +95,15 @@ fun UserPostUI() {
         )
         UserPostInteractionUI()
         Spacer(modifier = Modifier.height(10.dp))
-        UserPostDescription()
+        UserPostDescription(userData)
     }
 
 }
 
 @Composable
-fun PostHeaderUI() {
+fun PostHeaderUI(
+    userData: FakePostData
+) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -94,7 +112,7 @@ fun PostHeaderUI() {
             .padding(start = 10.dp, end = 10.dp)
     ) {
       Row {
-          val userProfile = painterResource(id = R.drawable.model_si)
+          val userProfile = painterResource(id = userData.userImage)
           Image(
               painter = userProfile,
               contentDescription = null,
@@ -108,7 +126,7 @@ fun PostHeaderUI() {
                   ),
               contentScale = ContentScale.Crop
           )
-          Text(text = "Westly.windler",
+          Text(text = userData.userName,
               style = TextStyle(
                   fontSize = 14.sp,
                   fontWeight = FontWeight.Bold
@@ -356,23 +374,25 @@ fun UserPostInteractionUI() {
 }
 
 @Composable
-fun UserPostDescription() {
-    Column (modifier = Modifier.padding(start = 10.dp, end = 10.dp)) {
+fun UserPostDescription(
+    userData: FakePostData
+) {
+    Column (modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 10.dp)) {
         Text(
-            text = "47 Likes",
+            text = "${userData.likes} Likes",
             style = TextStyle(
                 fontWeight = FontWeight.Bold
             )
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text (
-            messageFormatter(comment = "Today evening is so good #GoodEvening #CrazyNight"),
+            messageFormatter(comment = userData.postDescription),
             style = TextStyle(fontSize = 12.sp),
             maxLines = 1
         )
         Spacer(modifier = Modifier.height(2.dp))
         Text(
-            text = "1 hour ago",
+            text = userData.postTime,
             style = TextStyle(
                 fontWeight = FontWeight.Light,
                 fontSize = 10.sp,
