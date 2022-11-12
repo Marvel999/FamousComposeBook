@@ -125,47 +125,6 @@ fun PostHeaderUI() {
 }
 
 @Composable
-fun UserPostInteractionUI() {
-    Spacer(modifier = Modifier.height(10.dp))
-    Row (modifier = Modifier
-        .fillMaxWidth()
-        .wrapContentHeight()
-        .padding(start = 10.dp, end = 10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        Row (horizontalArrangement = Arrangement.SpaceEvenly,
-        modifier = Modifier.wrapContentWidth()) {
-            val likeIcon = painterResource(id = R.drawable.ic_insta_like_icon)
-            val commentIcon = painterResource(id = R.drawable.ic_insta_comment_icon)
-            val shareIcon = painterResource(id = R.drawable.ic_instagram_share_icon)
-
-            val iconList = listOf(likeIcon, commentIcon, shareIcon)
-            for (icon in iconList) {
-                Image(
-                    painter = icon,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .padding(end = 15.dp)
-                        .align(Alignment.CenterVertically)
-                )
-            }
-        }
-
-        val bookMarkIcon = painterResource(id = R.drawable.ic_baseline_bookmark_border_24)
-        Image(
-            painter = bookMarkIcon,
-            contentDescription = null,
-            modifier = Modifier
-                .size(40.dp)
-                .padding(end = 10.dp)
-
-        )
-    }
-
-}
-
-@Composable
 fun UserOwnStoryUI() {
     Column(modifier = Modifier.padding(start = 10.dp)) {
 
@@ -366,11 +325,57 @@ fun PostLikedUI() {
 
 }
 
+@Composable
+fun UserPostInteractionUI() {
+    Spacer(modifier = Modifier.height(10.dp))
+    Row (modifier = Modifier
+        .fillMaxWidth()
+        .wrapContentHeight()
+        .padding(start = 10.dp, end = 10.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Row (horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.wrapContentWidth()) {
+            val likeIcon = painterResource(id = R.drawable.ic_insta_like_icon)
+            val commentIcon = painterResource(id = R.drawable.ic_insta_comment_icon)
+            val shareIcon = painterResource(id = R.drawable.ic_instagram_share_icon)
+
+            val iconList = listOf(likeIcon, commentIcon, shareIcon)
+            for (icon in iconList) {
+                Image(
+                    painter = icon,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(40.dp)
+                        .padding(end = 15.dp)
+                        .align(Alignment.CenterVertically)
+                )
+            }
+        }
+
+        val bookMarkIcon = painterResource(id = R.drawable.ic_baseline_bookmark_border_24)
+        Image(
+            painter = bookMarkIcon,
+            contentDescription = null,
+            modifier = Modifier
+                .size(40.dp)
+                .padding(end = 10.dp)
+
+        )
+    }
+
+}
+
+@Composable
+fun UserPostDescription() {
+
+}
+
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun DefaultPreview() {
     FUITempletTheme {
-        PostLikedUI()
+        HomeUI()
     }
 }
 
