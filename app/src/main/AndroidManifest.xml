@@ -9,6 +9,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FUITemplet">
         <activity
+            android:name=".Spotify.SpotifyActivity"
+            android:exported="false"
+            android:label="@string/title_spotify_screen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FUITemplet" />
+        <activity
+            android:name=".Spotify.SpotifyHomeActivity"
+            android:exported="false"
+            android:label="@string/title_spotify_home_screen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FUITemplet" />
+        <activity
             android:name=".DemoScreen.DemoScreen"
             android:exported="false"
             android:label="@string/title_activity_demo_screen"

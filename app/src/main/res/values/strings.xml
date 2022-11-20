@@ -4,4 +4,6 @@
     <string name="new_tag">New</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_demo_screen">DemoScreen</string>
+    <string name="title_spotify_screen">Spotify</string>
+    <string name="title_spotify_home_screen">Spotify Home</string>
 </resources>
