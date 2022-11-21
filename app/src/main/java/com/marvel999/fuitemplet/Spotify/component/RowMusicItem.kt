@@ -1,5 +1,6 @@
 package com.marvel999.fuitemplet.Spotify.component
 
+import android.graphics.Color.parseColor
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,10 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.marvel999.fuitemplet.R
 import com.marvel999.fuitemplet.Spotify.ui.theme.*
+import com.marvel999.fuitemplet.Spotify.utill.randomHexColorGanrator
 
 @Composable
 fun RowMusicItem(rowMusicData: RowMusicData, modifier: Modifier = Modifier) {
-    Column(modifier = modifier.width(150.dp)) {
+    Column(modifier = modifier
+        .width(150.dp)
+        .padding(vertical = 15.dp)) {
         Box {
             Image(
                 painter = painterResource(id = rowMusicData.imageSrc),
@@ -30,31 +34,28 @@ fun RowMusicItem(rowMusicData: RowMusicData, modifier: Modifier = Modifier) {
                 contentScale = ContentScale.FillBounds
             )
             if (rowMusicData.imageDecoratorEnable) {
-            Text(
-                rowMusicData.singerName,
-                modifier = Modifier
-                    .padding(start = 16.dp, bottom = 20.dp)
-                    .align(Alignment.BottomStart),
-                color = tertiary,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = Typography.titleLarge,
-                fontSize = 22.sp
-            )
-            var spacerColor = Color.Red
-            if (!rowMusicData.FirstItem) {
-                spacerColor = pink
-            }
+                Text(
+                    rowMusicData.singerName,
+                    modifier = Modifier
+                        .padding(start = 16.dp, bottom = 20.dp)
+                        .align(Alignment.BottomStart),
+                    color = tertiary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    style = Typography.titleLarge,
+                    fontSize = 22.sp
+                )
+                val color:Color = Color(parseColor(randomHexColorGanrator()))
                 Spacer(
                     modifier = Modifier
                         .padding(bottom = 25.dp)
-                        .background(spacerColor)
+                        .background(color)
                         .size(width = 5.dp, height = 20.dp)
                         .align(Alignment.BottomStart)
                 )
                 Spacer(
                     modifier = Modifier
-                        .background(spacerColor)
+                        .background(color)
                         .size(width = 150.dp, height = 5.dp)
                         .align(Alignment.BottomStart)
                 )
@@ -79,7 +80,6 @@ data class RowMusicData(
     val songName: String,
     val singerName: String,
     @DrawableRes val imageSrc: Int,
-    val FirstItem: Boolean = false,
     val imageDecoratorEnable: Boolean = false
 )
 

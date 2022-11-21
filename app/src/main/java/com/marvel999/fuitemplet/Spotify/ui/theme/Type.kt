@@ -35,7 +35,7 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.roboto_bold)),
         fontWeight = FontWeight.Bold,
         fontSize = 12.sp,
-        ),
+    ),
     titleSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.roboto_medium)),
         fontWeight = FontWeight.SemiBold
@@ -48,5 +48,10 @@ val Typography = Typography(
     bodyMedium = TextStyle(
         fontFamily = FontFamily(Font(R.font.roboto_medium)),
         fontWeight = FontWeight.SemiBold
-    )
+    ),
+    displaySmall = TextStyle(
+        fontFamily = FontFamily(Font(R.font.roboto_light)),
+        fontSize = 12.sp
+
+    ),
 )
