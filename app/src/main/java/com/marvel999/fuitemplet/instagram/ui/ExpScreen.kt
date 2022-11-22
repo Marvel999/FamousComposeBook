@@ -33,6 +33,7 @@ import androidx.core.graphics.toColorInt
 import com.marvel999.fuitemplet.DemoScreen.ui.theme.FUITempletTheme
 import com.marvel999.fuitemplet.FakePostData
 import com.marvel999.fuitemplet.R
+import com.marvel999.fuitemplet.instagram.ui.theme.grey_white
 import com.marvel999.fuitemplet.instagram.ui.theme.instagramTextTypography
 import com.marvel999.fuitemplet.instagram.ui.theme.instagramTypography
 import com.marvel999.fuitemplet.usersPosts
@@ -74,7 +75,7 @@ fun UserPostUI(
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .defaultMinSize(minHeight = 330.dp)
-                .background(Color("#F1F3F4".toColorInt()))
+                .background(grey_white)
             ,
         )
         UserPostInteractionUI()
