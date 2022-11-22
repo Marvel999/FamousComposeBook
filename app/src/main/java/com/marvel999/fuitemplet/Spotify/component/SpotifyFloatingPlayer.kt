@@ -2,13 +2,17 @@ package com.marvel999.fuitemplet.Spotify.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -34,6 +38,7 @@ fun SpotifyFloatingPlayer() {
             .clip(RoundedCornerShape(8.dp))
             .background(playerCardGrayBackGround)
             .height(60.dp)
+            .clickable(onClick = {})
     ) {
         val (image, songNameText, singerNameText, progressBar, iconGroup) = createRefs()
 
@@ -118,6 +123,11 @@ fun IconGroup(modifier: Modifier = Modifier) {
             tint = offWhiteTextColor,
             modifier = Modifier
                 .width(35.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = rememberRipple(bounded = false, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+                    onClick = {}
+                )
                 .padding(5.dp),
         )
         Icon(
@@ -126,6 +136,11 @@ fun IconGroup(modifier: Modifier = Modifier) {
             tint = Color.White,
             modifier = Modifier
                 .width(35.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = rememberRipple(bounded = false, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+                    onClick = {}
+                )
                 .padding(5.dp),
         )
         Icon(
@@ -134,6 +149,11 @@ fun IconGroup(modifier: Modifier = Modifier) {
             tint = Color.White,
             modifier = Modifier
                 .width(35.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = rememberRipple(bounded = false, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+                    onClick = {}
+                )
                 .padding(5.dp),
         )
     }

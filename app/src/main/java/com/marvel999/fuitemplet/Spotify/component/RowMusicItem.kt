@@ -4,11 +4,17 @@ import android.graphics.Color.parseColor
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -25,7 +31,14 @@ import com.marvel999.fuitemplet.Spotify.utill.randomHexColorGanrator
 fun RowMusicItem(rowMusicData: RowMusicData, modifier: Modifier = Modifier) {
     Column(modifier = modifier
         .width(150.dp)
-        .padding(vertical = 15.dp)) {
+        .clip(RoundedCornerShape(4.dp))
+        .clickable(
+            interactionSource = remember { MutableInteractionSource() },
+            indication = rememberRipple(bounded = true, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+            onClick = {}
+        )
+        .padding(vertical = 15.dp, horizontal = 10.dp)
+    ) {
         Box {
             Image(
                 painter = painterResource(id = rowMusicData.imageSrc),

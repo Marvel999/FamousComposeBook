@@ -2,15 +2,19 @@ package com.marvel999.fuitemplet.Spotify.screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -24,10 +28,7 @@ import com.marvel999.fuitemplet.Spotify.component.RowMusicItem
 import com.marvel999.fuitemplet.Spotify.data.getMusicGridData
 import com.marvel999.fuitemplet.Spotify.data.getMusicRowData
 import com.marvel999.fuitemplet.Spotify.data.getTodaysBiggestHitData
-import com.marvel999.fuitemplet.Spotify.ui.theme.Typography
-import com.marvel999.fuitemplet.Spotify.ui.theme.cardGrayBackGround
-import com.marvel999.fuitemplet.Spotify.ui.theme.dark
-import com.marvel999.fuitemplet.Spotify.ui.theme.tertiary
+import com.marvel999.fuitemplet.Spotify.ui.theme.*
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -115,7 +116,7 @@ fun SpotifySongRow(sectionName: String, list: List<RowMusicData>, modifier: Modi
         Spacer(modifier = modifier.height(12.dp))
         LazyRow {
             itemsIndexed(list) { index: Int, item: RowMusicData ->
-                RowMusicItem(rowMusicData = item, modifier.padding(end = 20.dp))
+                RowMusicItem(rowMusicData = item )
             }
         }
 
@@ -139,6 +140,7 @@ fun RowTopic() {
                     .fillMaxWidth(0.3f)
                     .clip(CircleShape)
                     .background(cardGrayBackGround)
+                    .clickable(onClick = {})
                     .padding(top = 8.dp, bottom = 8.dp, end = 20.dp, start = 20.dp),
                 color = Color.White,
                 style = Typography.bodySmall,
@@ -182,19 +184,32 @@ fun IconsComposable(modifier: Modifier) {
 
         Icon(
             painter = painterResource(id = R.drawable.ic_spotify_notification),
-            modifier = modifierIcon,
+            modifier = modifierIcon
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = rememberRipple(bounded = false, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+                    onClick = {}
+                ),
             tint = Color.White,
             contentDescription = null
         )
         Icon(
             painter = painterResource(id = R.drawable.ic_spotify_history),
-            modifier = modifierIcon,
+            modifier = modifierIcon .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(bounded = false, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+                onClick = {}
+            ),
             tint = Color.White,
             contentDescription = null
         )
         Icon(
             painter = painterResource(id = R.drawable.ic_spotify_setting),
-            modifier = modifierIcon,
+            modifier = modifierIcon.clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(bounded = false, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+                onClick = {}
+            ),
             tint = Color.White,
             contentDescription = null
         )
