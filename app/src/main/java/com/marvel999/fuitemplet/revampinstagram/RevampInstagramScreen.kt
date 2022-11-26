@@ -4,13 +4,13 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.DrawerValue
-import androidx.compose.material.Surface
-import androidx.compose.material.rememberDrawerState
-import androidx.compose.material.rememberScaffoldState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,12 +34,16 @@ fun ShowViewPager() {
     )
 
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy((-32).dp)
+        verticalArrangement = Arrangement.spacedBy((-32).dp),
+        modifier = Modifier.padding(top = 30.dp)
     ) {
         items(count = list.size) { it ->
+            
             Image(painter = painterResource(list[it]),
-                modifier = Modifier.fillMaxWidth()
-                .height(400.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .clip(RoundedCornerShape(30.dp)),
                 contentDescription = null,
                 contentScale = ContentScale.FillHeight
             )
