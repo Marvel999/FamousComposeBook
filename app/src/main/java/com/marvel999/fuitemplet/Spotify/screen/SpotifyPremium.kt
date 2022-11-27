@@ -23,7 +23,7 @@ fun SpotifyPremiumScreen() {
             .wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Premium Screen",
+            text = "Premium Screen Coming Soon...",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),

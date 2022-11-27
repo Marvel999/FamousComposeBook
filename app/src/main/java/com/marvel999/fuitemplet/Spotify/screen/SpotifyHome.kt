@@ -125,12 +125,12 @@ fun SpotifySongRow(sectionName: String, list: List<RowMusicData>, modifier: Modi
 }
 
 @Composable
-fun RowTopic() {
+fun RowTopic(modifier: Modifier = Modifier) {
     val mutableList = listOf("Music", "Podcasts & Shows", "Song", "Playlist", "Audio Book")
     LazyRow(
-        Modifier
+        modifier
             .background(dark)
-            .padding(top = 8.dp, bottom = 8.dp)
+            .padding(top = 12.dp, bottom = 15.dp)
     ) {
         itemsIndexed(mutableList) { index, item ->
             Text(

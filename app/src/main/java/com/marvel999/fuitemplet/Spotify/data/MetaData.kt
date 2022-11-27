@@ -1,6 +1,7 @@
 package com.marvel999.fuitemplet.Spotify.data
 
 import com.marvel999.fuitemplet.R
+import com.marvel999.fuitemplet.Spotify.component.LibraryListItemData
 import com.marvel999.fuitemplet.Spotify.component.MusicGridData
 import com.marvel999.fuitemplet.Spotify.component.RowMusicData
 import com.marvel999.fuitemplet.Spotify.component.SearchScreenComponent.SearchGridItem
@@ -175,4 +176,14 @@ fun getSearchGridList(): List<SearchGridItemData> = listOf<SearchGridItemData>(
    SearchGridItemData("Romance", R.drawable.img_spotify_song_10),
    SearchGridItemData("Discover", R.drawable.img_spotify_song_11),
    SearchGridItemData("Radio", R.drawable.img_spotify_song_12)
+)
+
+fun getLibraryListData()= listOf<LibraryListItemData>(
+    LibraryListItemData("The Fray", "Artist", R.drawable.spotify_singer_1),
+    LibraryListItemData("Rob Thomas", "Artist", R.drawable.spotify_singer_2),
+    LibraryListItemData("OneRepublic", "Artist", R.drawable.spotify_singer_3),
+    LibraryListItemData("Imagine Dragons", "Artist", R.drawable.spotify_singer_4),
+    LibraryListItemData("Emiway Bantai", "Artist", R.drawable.spotify_singer_5),
+    LibraryListItemData("Billie Eilish", "Artist", R.drawable.spotify_singer_6),
+    LibraryListItemData("Arijit Singh", "Artist", R.drawable.spotify_singer_7)
 )
