@@ -23,18 +23,7 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".landingscreen.screens.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DemoScreen.DemoScreen"
-            android:exported="false"
-            android:label="@string/title_activity_demo_screen"
-            android:theme="@style/Theme.FUITemplet" />
-        <activity
-            android:name=".instagram.InstagramHomeActivity"
-            android:exported="true"
-            android:label="@string/title_activity_main"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.FUITemplet">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,6 +33,18 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".DemoScreen.DemoScreen"
+            android:exported="false"
+            android:label="@string/title_activity_demo_screen"
+            android:theme="@style/Theme.FUITemplet" />
+        <activity
+            android:name=".instagram.InstagramHomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FUITemplet">
         </activity>
     </application>
 
