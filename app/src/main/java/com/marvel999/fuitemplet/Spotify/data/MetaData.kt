@@ -3,6 +3,8 @@ package com.marvel999.fuitemplet.Spotify.data
 import com.marvel999.fuitemplet.R
 import com.marvel999.fuitemplet.Spotify.component.MusicGridData
 import com.marvel999.fuitemplet.Spotify.component.RowMusicData
+import com.marvel999.fuitemplet.Spotify.component.SearchScreenComponent.SearchGridItem
+import com.marvel999.fuitemplet.Spotify.component.SearchScreenComponent.SearchGridItemData
 
 fun getMusicGridData(): List<MusicGridData> = listOf(
     MusicGridData(
@@ -154,4 +156,23 @@ fun getTodaysBiggestHitData(): List<RowMusicData> = listOf(
         "Sadko Mix",
         R.drawable.img_spotify_song_12,
     ),
+)
+
+fun getSearchGridList(): List<SearchGridItemData> = listOf<SearchGridItemData>(
+   SearchGridItemData("Podcasts", R.drawable.img_spotify_music_grid_1),
+   SearchGridItemData("Made For You", R.drawable.img_spotify_music_grid_2),
+   SearchGridItemData("New releases", R.drawable.img_spotify_music_grid_3),
+   SearchGridItemData("Hindi", R.drawable.img_spotify_music_grid_4),
+   SearchGridItemData("Tamil", R.drawable.img_spotify_song_1),
+   SearchGridItemData("English", R.drawable.img_spotify_song_2),
+   SearchGridItemData("Punjabi", R.drawable.img_spotify_song_3),
+   SearchGridItemData("Telugu", R.drawable.img_spotify_song_4),
+   SearchGridItemData("Charts", R.drawable.img_spotify_song_5),
+   SearchGridItemData("Live Events", R.drawable.img_spotify_song_6),
+   SearchGridItemData("Pop", R.drawable.img_spotify_song_7),
+   SearchGridItemData("Indie", R.drawable.img_spotify_song_8),
+   SearchGridItemData("Trending", R.drawable.img_spotify_song_9),
+   SearchGridItemData("Romance", R.drawable.img_spotify_song_10),
+   SearchGridItemData("Discover", R.drawable.img_spotify_song_11),
+   SearchGridItemData("Radio", R.drawable.img_spotify_song_12)
 )
