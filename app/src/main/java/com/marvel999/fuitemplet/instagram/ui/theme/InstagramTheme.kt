@@ -1,15 +1,20 @@
-package com.marvel999.fuitemplet.DemoScreen.ui.theme
+package com.marvel999.fuitemplet.instagram.ui.theme
 
+import android.app.Activity
+import android.graphics.Color
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 private val DarkColorPalette = darkColors(
     primary = white,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primaryVariant = white,
+    secondary = white
 )
 
 private val LightColorPalette = lightColors(
@@ -27,8 +32,10 @@ private val LightColorPalette = lightColors(
     */
 )
 
+
+
 @Composable
-fun FUITempletTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun InstagramTemplateTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
@@ -38,7 +45,6 @@ fun FUITempletTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compos
     MaterialTheme(
         colors = colors,
         typography = Typography,
-        shapes = Shapes,
         content = content
     )
 }

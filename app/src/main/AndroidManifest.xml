@@ -21,14 +21,19 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.FUITemplet" />
         <activity
+            android:screenOrientation="portrait"
+            android:name=".landingscreen.screens.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".DemoScreen.DemoScreen"
             android:exported="false"
             android:label="@string/title_activity_demo_screen"
             android:theme="@style/Theme.FUITemplet" />
         <activity
-            android:name=".landingscreen.screens.MainActivity"
+            android:name=".instagram.InstagramHomeActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.FUITemplet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
