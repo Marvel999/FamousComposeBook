@@ -19,6 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.marvel999.fuitemplet.DemoScreen.DemoScreen
 import com.marvel999.fuitemplet.R
+import com.marvel999.fuitemplet.Spotify.SpotifyActivity
+import com.marvel999.fuitemplet.Spotify.ui.theme.SpotifyTheme
 import com.marvel999.fuitemplet.landingscreen.componets.LandingPageListItemCard
 import com.marvel999.fuitemplet.landingscreen.componets.LandingPageListItemCardData
 import com.marvel999.fuitemplet.landingscreen.data.landingPageListItemCardDataList
@@ -74,6 +76,13 @@ class MainActivity : ComponentActivity() {
                 appTemplateName = "Welcome Screen",
                 onItemClick = {
                     StartDemoActivity()
+                })
+        landingPageListItemCardDataList =
+            landingPageListItemCardDataList + LandingPageListItemCardData(
+                appIcon = R.drawable.ic_spotify_logo,
+                appTemplateName = "Spotify",
+                onItemClick = {
+                   startActivity(Intent(this@MainActivity, SpotifyActivity::class.java))
                 })
         Box(
             modifier = Modifier
