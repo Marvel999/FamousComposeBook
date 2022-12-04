@@ -34,7 +34,11 @@ fun RowMusicItem(rowMusicData: RowMusicData, modifier: Modifier = Modifier) {
         .clip(RoundedCornerShape(4.dp))
         .clickable(
             interactionSource = remember { MutableInteractionSource() },
-            indication = rememberRipple(bounded = true, color = offWhiteTextColor), // You can also change the color and radius of the ripple
+            // You can also change the color and radius of the ripple
+            indication = rememberRipple(
+                bounded = true,
+                color = offWhiteTextColor
+            ),
             onClick = {}
         )
         .padding(vertical = 15.dp, horizontal = 10.dp)

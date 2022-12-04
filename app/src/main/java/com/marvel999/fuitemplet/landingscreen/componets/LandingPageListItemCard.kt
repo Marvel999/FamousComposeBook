@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -22,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import com.marvel999.fuitemplet.R
+import com.marvel999.fuitemplet.Spotify.ui.theme.offWhiteTextColor
 import com.marvel999.fuitemplet.ui.theme.Dimensions
 import com.marvel999.fuitemplet.ui.theme.LiteBase0
 import com.marvel999.fuitemplet.ui.theme.LiteGray0
@@ -33,11 +35,16 @@ fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCard
         modifier = Modifier
             .fillMaxWidth()
             .background(color = LiteBase0)
-            .clickable(indication = null,
-                interactionSource = remember {
-                    MutableInteractionSource()
-                },
-                onClick = { landingPageListItemCardData.onItemClick?.invoke() })
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(
+                    bounded = true,
+                    color = Color.Black
+                ),
+                onClick = {
+                    landingPageListItemCardData.onItemClick?.invoke()
+                }
+            )
             .padding(
                 Dp(Dimensions.DP_16),
                 Dp(Dimensions.DP_12),
@@ -77,11 +84,13 @@ fun LandingPageListItemCard(landingPageListItemCardData: LandingPageListItemCard
 
         Icon(
             modifier = Modifier
-                .clickable(onClick = { landingPageListItemCardData.onItemClick?.invoke() },
-                    indication = null,
-                    interactionSource = remember {
-                        MutableInteractionSource()
-                    })
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = rememberRipple(
+                        bounded = true,
+                        color = Color.Black
+                    ),
+                    onClick = { landingPageListItemCardData.onItemClick?.invoke() })
                 .width(Dp(Dimensions.DP_40))
                 .height(Dp(Dimensions.DP_40))
                 .padding(Dp(Dimensions.DP_8))
