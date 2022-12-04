@@ -44,7 +44,7 @@ fun SpotifyHomeScreen() {
         }
         stickyHeader {
             RowTopic()
-            Spacer(modifier = Modifier.padding(top = 20.dp))
+            Spacer(modifier = Modifier.height(20.dp))
         }
         items(getMusicGridData().windowed(2, 2, true)) { subList ->
             Row(modifier = Modifier.padding(top = 10.dp)) {

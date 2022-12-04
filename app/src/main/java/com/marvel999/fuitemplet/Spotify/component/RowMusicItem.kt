@@ -58,7 +58,7 @@ fun RowMusicItem(rowMusicData: RowMusicData, modifier: Modifier = Modifier) {
                     style = Typography.titleLarge,
                     fontSize = 22.sp
                 )
-                val color:Color = Color(parseColor(randomHexColorGanrator()))
+                val color = Color(parseColor(randomHexColorGanrator()))
                 Spacer(
                     modifier = Modifier
                         .padding(bottom = 25.dp)

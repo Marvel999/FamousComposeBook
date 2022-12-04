@@ -4,6 +4,8 @@
     <string name="new_tag">New</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_demo_screen">DemoScreen</string>
+    <!-- Spotify -->
     <string name="title_spotify_screen">Spotify</string>
     <string name="title_spotify_home_screen">Spotify Home</string>
+    <string name="spotify_Splash_screen_content_des">spotify Splash screen</string>
 </resources>
