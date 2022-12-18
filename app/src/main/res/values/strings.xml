@@ -11,4 +11,5 @@
 
     <!-- Instagram -->
     <string name="title_instagram_screen">Instagram</string>
+    <string name="title_activity_whats_app">WhatsAppActivity</string>
 </resources>

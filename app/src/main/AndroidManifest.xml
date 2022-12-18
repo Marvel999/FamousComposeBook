@@ -9,12 +9,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FUITemplet">
         <activity
+            android:name=".WhatsAppActivity"
+            android:exported="false"
+            android:label="@string/title_activity_whats_app"
+            android:theme="@style/Theme.FUITemplet">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Spotify.SpotifyActivity"
             android:exported="false"
             android:label="@string/title_spotify_screen"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.FUITemplet" >
-        </activity>
+            android:theme="@style/Theme.FUITemplet"></activity>
         <activity
             android:name=".Spotify.SpotifyHomeActivity"
             android:exported="false"
@@ -22,9 +30,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.FUITemplet" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".landingscreen.screens.MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,8 +49,7 @@
             android:exported="false"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.FUITemplet">
-        </activity>
+            android:theme="@style/Theme.FUITemplet"></activity>
     </application>
 
 </manifest>
